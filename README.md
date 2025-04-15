@@ -6,6 +6,8 @@
 
 It leverages smart contracts for managing voter registration, election creation, vote casting, and result tallying, ensuring immutability and preventing censorship or manipulation.
 
+(Veritas is Latin for truth, fitting for a transparent voting system)
+
 ## Features
 
 *   **Secure Voter Registration:** Only the designated contract owner (Admin) can register eligible voter addresses. Batch registration is supported.
