@@ -1,0 +1,64 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Production build artifacts
+/build
+/dist
+/artifacts       # Hardhat compilation output
+/cache           # Hardhat cache
+
+# Misc
+.DS_Store
+*.pem
+
+# Local development secrets
+.env             # IMPORTANT: Ignore environment variables file
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Editor directories and files
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-workspace
+
+# Optional typescript cache files
+*.tsbuildinfo
+
+# Optional eslint cache
+.eslintcache
+
+# Frontend specific ignores (if create-react-app) - these are often covered by /node_modules and /build
+# client/node_modules
+# client/build
+
+# Hardhat specific cache/config backup
+hardhat.config.js.bak
+
+# Gas Reporter Output
+gas-report.txt
+
+# Slither static analysis reports (if used)
+*.slither.db.json
+*.sol.latest.json
+output.txt

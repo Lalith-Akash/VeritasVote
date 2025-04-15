@@ -1,0 +1,45 @@
+{
+  "name": "veritas-vote",
+  "version": "1.0.0",
+  // ... other package details ...
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2", // Includes ethers, waffle, etc.
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.1",
+    "chai": "^4.3.7",
+    "dotenv": "^16.0.3",
+    "ethers": "^5.7.2", // Part of toolbox, but explicitly listed for clarity
+    "hardhat": "^2.14.0", 
+    "hardhat-gas-reporter": "^1.0.9",
+    "solidity-coverage": "^0.8.2", // For test coverage
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4" 
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.8.3" 
+  }
+}
+```
+
+*Frontend `client/package.json` (for React):*
+```json
+{
+  "name": "veritas-vote-client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "ethers": "^5.7.2", // Important! Match Hardhat version if possible
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+ // ... scripts, eslintConfig, browserslist ...
+}

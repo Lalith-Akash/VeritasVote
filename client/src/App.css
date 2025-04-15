@@ -1,0 +1,537 @@
+/* --- Base & Reset --- */
+:root {
+  --primary-color: #3498db; /* Blue */
+  --primary-hover: #2980b9;
+  --secondary-color: #ecf0f1; /* Light grey */
+  --secondary-hover: #bdc3c7;
+  --success-color: #2ecc71; /* Green */
+  --error-color: #e74c3c;   /* Red */
+  --warning-color: #f39c12; /* Orange */
+  --text-color: #34495e;   /* Dark Grey/Blue */
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --border-color: #dfe6e9;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --header-height: 70px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Header --- */
+.App-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  height: var(--header-height);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.App-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.global-messages {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+/* --- Main Content --- */
+.App-main {
+  flex-grow: 1;
+  padding: 1.5rem 2rem; /* Add padding */
+  width: 100%;
+  max-width: 1400px; /* Limit max width for large screens */
+  margin: 0 auto; /* Center the main content */
+}
+
+.content-area {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem; /* Space below connect area */
+}
+
+.left-panel, .right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.left-panel {
+  flex: 1; /* Takes up 1 part of the space */
+   min-width: 350px; /* Ensure it doesn't get too squished */
+}
+
+.right-panel {
+  flex: 1.5; /* Takes up 1.5 parts, slightly wider */
+   min-width: 450px;
+}
+
+/* Card styling */
+.card {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 1.5rem;
+   overflow: hidden; /* Prevent content overflow issues */
+}
+
+.card-header {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+   padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--primary-color);
+}
+
+/* --- Connection Area --- */
+.connect-wallet-area {
+  margin-bottom: 1.5rem; /* Add space below connection card */
+}
+
+.connection-info p {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  word-wrap: break-word; /* Wrap long addresses */
+}
+.connection-info p span {
+  font-weight: 600;
+   color: #555;
+  margin-right: 0.5em;
+}
+.owner-badge {
+  font-weight: bold;
+  color: var(--warning-color);
+  margin-left: 0.5rem;
+  font-size: 0.85em;
+}
+.contract-address {
+   font-family: monospace;
+   font-size: 0.9em;
+   color: #666;
+}
+
+/* --- Forms --- */
+.admin-form {
+  margin-top: 1rem;
+}
+.admin-form h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.form-group input[type="text"],
+.form-group input[type="datetime-local"],
+.form-group textarea {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+.form-group input:disabled,
+.form-group textarea:disabled {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+}
+.form-group-inline {
+    display: flex;
+    gap: 1rem;
+}
+.form-group-inline > div {
+    flex: 1;
+}
+.form-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 1.5rem 0;
+}
+
+/* Radio Buttons for Proposals */
+.radio-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  background-color: #fdfdfd;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+.radio-group:has(input:checked) {
+   background-color: #eaf5ff;
+   border-color: var(--primary-color);
+}
+.radio-group input[type="radio"] {
+  margin-right: 0.8rem;
+   transform: scale(1.1);
+   accent-color: var(--primary-color); /* Modern browser support */
+}
+.radio-group label {
+  flex-grow: 1;
+   font-weight: 500;
+   cursor: pointer;
+}
+.radio-group input[type="radio"]:disabled + label {
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* --- Buttons --- */
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.button:not(:disabled):active {
+    transform: scale(0.98);
+}
+
+.button-primary { background-color: var(--primary-color); color: white; }
+.button-primary:not(:disabled):hover { background-color: var(--primary-hover); }
+
+.button-secondary { background-color: var(--secondary-color); color: var(--text-color); border: 1px solid var(--border-color); }
+.button-secondary:not(:disabled):hover { background-color: var(--secondary-hover); }
+
+.button-success { background-color: var(--success-color); color: white; }
+.button-success:not(:disabled):hover { background-color: #27ae60; } /* Darker green */
+
+.button-danger { background-color: var(--error-color); color: white; }
+.button-danger:not(:disabled):hover { background-color: #c0392b; } /* Darker red */
+
+.button-small { font-size: 0.85rem; padding: 0.4rem 0.8rem; }
+.button-large { font-size: 1.1rem; padding: 0.8rem 2rem; }
+
+.admin-form button[type="submit"],
+.voting-section button[type="submit"] {
+   margin-top: 0.5rem;
+}
+
+.refresh-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.refresh-button svg {
+   margin-bottom: -0.1em; /* Align icon better */
+}
+.election-list-section {
+    position: relative; /* Needed for absolute positioning of refresh button */
+}
+
+
+/* --- Election List --- */
+.election-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+.election-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  margin-bottom: 0.8rem;
+  transition: background-color 0.2s ease;
+}
+.election-item:hover {
+   background-color: #f8f9fa;
+}
+.election-item.selected {
+    border-left: 4px solid var(--primary-color);
+    background-color: #eaf5ff;
+}
+.item-info {
+   display: flex;
+   align-items: center;
+   gap: 0.8rem;
+}
+.election-name {
+  font-weight: 500;
+}
+
+/* --- Status Indicators & Badges --- */
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.status-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2em 0.6em;
+  border-radius: 10px;
+  text-transform: uppercase;
+   border: 1px solid;
+   white-space: nowrap;
+}
+
+.status-pending, .status-badge.status-pending { background-color: #fde Nne6d; color: #d35400; border-color: #f5c6a6; } /* Lighter Orange bg, dark text/border */
+.status-active, .status-badge.status-active { background-color: #e8f8f1; color: var(--success-color); border-color: #a9dfbf; } /* Lighter Green */
+.status-closed, .status-badge.status-closed { background-color: var(--secondary-color); color: #7f8c8d; border-color: #bdc3c7; } /* Grey */
+
+
+/* --- Election Details --- */
+.election-details-section {
+  min-height: 300px; /* Ensure it has some height even when empty */
+}
+.placeholder {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 200px;
+   color: #7f8c8d;
+   font-style: italic;
+   text-align: center;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+  gap: 0.5rem 1rem; /* row-gap column-gap */
+  margin-bottom: 1.5rem;
+}
+.details-grid p {
+  margin-bottom: 0;
+}
+.details-grid p strong {
+    margin-right: 0.5em;
+    font-weight: 600;
+}
+.admin-actions {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 1rem;
+}
+.section-divider {
+  border: none;
+  border-top: 1px dashed var(--border-color);
+  margin: 1.5rem 0;
+}
+
+.voting-section h3,
+.results-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.proposals-list {
+  margin-bottom: 1rem;
+}
+.proposals-list.results {
+   list-style: none;
+   padding-left: 0;
+}
+.proposals-list.results li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px dotted var(--border-color);
+}
+.proposals-list.results li:last-child {
+    border-bottom: none;
+}
+.proposals-list.results li strong {
+  font-weight: 600;
+}
+.info-message {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+.vote-status-message {
+   background-color: #eaf5ff;
+   border: 1px solid #aed6f1;
+   color: #347ab4;
+}
+
+/* --- Notifications & Loading --- */
+.loading-indicator,
+.tx-indicator,
+.error-message,
+.success-message {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.loading-indicator {
+  background-color: rgba(243, 156, 18, 0.1); /* Warning hint */
+  color: #d35400;
+}
+
+.tx-indicator.sending { background-color: rgba(52, 152, 219, 0.1); color: #2980b9;} /* Blue hint */
+.tx-indicator.mining { background-color: rgba(52, 152, 219, 0.1); color: #2980b9; }
+
+.error-message { background-color: rgba(231, 76, 60, 0.1); color: #c0392b; font-weight: 500; }
+.success-message { background-color: rgba(46, 204, 113, 0.1); color: #27ae60; font-weight: 500;}
+
+.global-error, .global-success {
+   position: relative; /* For close button */
+}
+.global-error button { /* Close button for error */
+    background: none;
+    border: none;
+    color: var(--error-color);
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: auto; /* Pushes to the right */
+    padding: 0 0.3em;
+    line-height: 1;
+}
+
+
+/* Simple Spinner */
+.spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* --- Footer --- */
+.App-footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  background-color: var(--secondary-color);
+  border-top: 1px solid var(--border-color);
+}
+
+
+/* --- Responsiveness --- */
+@media (max-width: 992px) {
+    .content-area {
+        flex-direction: column;
+    }
+    .left-panel, .right-panel {
+      min-width: unset; /* Allow them to shrink */
+      flex: 1; /* Make them equal width when stacked */
+   }
+   .App-header {
+      flex-direction: column;
+      height: auto;
+      padding: 1rem;
+      text-align: center;
+   }
+   .global-messages {
+      margin-top: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap; /* Allow messages to wrap */
+   }
+   .App-main {
+      padding: 1rem;
+   }
+}
+
+@media (max-width: 768px) {
+    .App-header h1 {
+       font-size: 1.5rem;
+   }
+    .button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    .card {
+       padding: 1rem;
+    }
+    .card-header {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+     .form-group-inline {
+         flex-direction: column; /* Stack date inputs on smaller screens */
+         gap: 1rem;
+     }
+     .election-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+     }
+     .election-item button {
+        align-self: flex-end; /* Button to the right */
+     }
+}
